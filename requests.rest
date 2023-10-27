@@ -1,0 +1,104 @@
+GET http://localhost:8000/
+
+#####
+
+POST http://localhost:8000/user/signup
+Content-Type: application/json
+
+{
+  "name": "Waleed",
+  "email": "waleed@gmail.com",
+  "password": "imblue-12345"
+}
+
+#####
+
+
+
+POST http://localhost:8000/user/authenticate
+Content-Type: application/json
+
+{
+  "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTI1MmM1NDYwZTdiOTZkNTVmMGEyM2EiLCJ1c2VyIjp7Il9pZCI6IjY1MjUyYzU0NjBlN2I5NmQ1NWYwYTIzYSIsIm5hbWUiOiJhaG1lZCB6dWxmaXFhciIsImVtYWlsIjoiYWhtZHp1bGZpcWFyMDFAZ21haWwuY29tIiwicGFzc3dvcmQiOiJpbWJsdWUtMTIzNDUiLCJmcmllbmRzIjpbXSwiX192IjowfSwiaWF0IjoxNjk2OTM1MDA1fQ.mJ88nef0qX4SObbH80M3I9QE9n2NPDcfbzk3INFN1uo"
+}
+######
+GET http://localhost:8000/user/allusers
+
+####
+
+POST  http://localhost:8000/sendreq
+Content-Type: application/json
+
+{
+  "from":"zulfiqar@gmail.com",
+  "to":"mama@gmail.com"
+}
+
+####
+POST http://localhost:8000/confirmreq
+Content-Type: application/json
+
+{
+  "from": "mama@gmail.com",     
+  "to": "ahmdzulfiqar01@gmail.com"  
+}
+#####
+
+POST http://localhost:8000/getrequests
+Content-Type: application/json
+
+{
+  "userId": "652e71059679fe3baa436025"
+}
+###
+POST http://localhost:8000/user/friends
+Content-Type: application/json
+
+{
+  "userId": "652e71ade93475248d50568b"
+}
+
+####
+POST http://localhost:8000/user/newpost
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "description": "This is a sample post",
+  "picturePath": "path/to/post-image.jpg",
+  "userPicturePath": "path/to/user-profile-image.jpg"
+}
+####
+POST http://localhost:8000/user/getpost
+Content-Type: application/json
+
+{
+  "email": "ahmed@gmail.com"
+}
+
+####
+POST http://localhost:8000/user/like
+Content-Type: application/json
+
+{
+  "email": "ahmed@gmail.com",
+  "postId":"65375d6ba04278deaebeffc5"
+}
+####
+POST http://localhost:8000/user/unlike
+Content-Type: application/json
+
+{
+  "email": "ahmed@gmail.com",
+  "postId":"65375d6ba04278deaebeffc5"
+}
+####
+POST http://localhost:8000/user/postcomment
+Content-Type: application/json
+
+{
+  "email": "ahmed@gmail.com",
+  "description":"hi",
+  "postId":"65375d6ba04278deaebeffc5"
+}
