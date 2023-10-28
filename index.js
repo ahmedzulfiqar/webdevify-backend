@@ -282,6 +282,17 @@ app.post("/user/getpost", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+//get my  posts
+app.post("/user/getmypost", async (req, res) => {
+  try {
+    const { email } = req.body;
+    let query = { email: email };
+    let result = await Post.find(query);
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 //like posts
 app.post("/user/like", async (req, res) => {
   try {

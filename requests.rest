@@ -76,7 +76,13 @@ Content-Type: application/json
 {
   "email": "ahmed@gmail.com"
 }
+####
+POST http://localhost:8000/user/getmypost
+Content-Type: application/json
 
+{
+  "email": "ahmed@gmail.com"
+}
 ####
 POST http://localhost:8000/user/like
 Content-Type: application/json
