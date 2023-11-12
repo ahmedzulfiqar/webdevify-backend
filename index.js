@@ -36,6 +36,7 @@ const userSchema = new mongoose.Schema({
   ],
   location: String,
   occupation: String,
+  bio: String,
 });
 const User = mongoose.model("User", userSchema);
 
@@ -332,7 +333,18 @@ app.post("/user/postcomment", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-//get comments
+//detail edit
+app.post("/edit-details", async (req, res) => {
+  const { email, detail } = req.body;
+  console.log(detail)
+  let query = { email: email };
+  const user = await User.findOne(query);
+  user.location = await detail.location;
+  user.bio = await detail.bio;
+  user.occupation = await detail.occupation;
+  await user.save();
+  res.json(user);
+});
 
 //listen
 
