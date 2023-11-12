@@ -264,24 +264,12 @@ app.post("/user/getpost", async (req, res) => {
     let user = await User.findOne(query);
     let result = await Post.find();
     const responseof = result.filter((i) => user.friends.includes(i.userId));
-    res.json(responseof);
+    res.json(result);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
-//get posts
-app.post("/user/getpost", async (req, res) => {
-  try {
-    const { email } = req.body;
-    let query = { email: email };
-    let user = await User.findOne(query);
-    let result = await Post.find();
-    const responseof = result.filter((i) => user.friends.includes(i.userId));
-    res.json(responseof);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+
 //get my  posts
 app.post("/user/getmypost", async (req, res) => {
   try {
