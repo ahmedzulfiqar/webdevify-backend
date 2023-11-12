@@ -264,7 +264,7 @@ app.post("/user/getpost", async (req, res) => {
     let user = await User.findOne(query);
     let result = await Post.find();
     const responseof = result.filter((i) => user.friends.includes(i.userId));
-    res.json(result);
+    res.json(responseof);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
